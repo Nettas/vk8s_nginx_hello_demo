@@ -4,7 +4,7 @@ metadata:
   name: nginx-hello
   namespace: "vk8s_namespace"
   annotations:
-    ves.io/virtual-sites: shared/agility-k8s-vsite
+    ves.io/virtual-sites: shared/"xc_virt_site"
     ves.io/workload-flavor-nginx: tiny
 spec:
   selector:
