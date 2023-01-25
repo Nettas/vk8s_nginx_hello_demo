@@ -10,7 +10,7 @@ spec:
   selector:
     matchLabels:
       app: nginx-hello
-  replicas: 3
+  replicas: 1
   template: 
     metadata:
       labels:
