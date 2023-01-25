@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-hello
-  namespace: s-iannetta
+  namespace: "vk8s_namespace"
   annotations:
     ves.io/virtual-sites: shared/agility-k8s-vsite
     ves.io/workload-flavor-nginx: tiny
@@ -27,7 +27,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nginx-hello
-  namespace: s-iannetta
+  namespace: "vk8s_namespace"
 spec:
   type: ClusterIP
   selector:
