@@ -10,7 +10,7 @@ spec:
   selector:
     matchLabels:
       app: nginx-hello
-  replicas: 1
+  replicas: 3
   template: # template for the pods
     metadata:
       labels:
