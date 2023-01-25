@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-hello
+  namespace: s-iannetta
+  annotations:
+    ves.io/virtual-sites: shared/agility-k8s-vsite
+    ves.io/workload-flavor-nginx: tiny
+spec:
+  selector:
+    matchLabels:
+      app: nginx-hello
+  replicas: 3
+  template: # template for the pods
+    metadata:
+      labels:
+        app: nginx-hello
+    spec:
+      containers:
+      - name: nginx
+        image: nginxdemos/hello
+        ports:
+          - name: nginx-hello
+            containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-hello
+  namespace: s-iannetta
+spec:
+  type: ClusterIP
+  selector:
+    app: nginx-hello
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
